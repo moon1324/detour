@@ -15,13 +15,13 @@ S.Background = styled.div`
 
 S.YellowBackground = styled.div`
     width: 100%;
-    height: 55%;
+    height: 52%;
     background-color: ${theme.PALETTE.background.yellow};
 `;
 
 S.WhiteBackground = styled.div`
     width: 100%;
-    height: 45%;
+    height: 48%;
     background-color: ${theme.PALETTE.background.white};
 `;
 
@@ -57,7 +57,6 @@ S.LogoWrapper = styled.div`
 
 S.LoginFormWrapper = styled.div`
     width: 100%;
-    background-color: ${theme.PALETTE.background.white};
 `;
 
 S.LoginForm = styled.form`

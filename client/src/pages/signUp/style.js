@@ -6,42 +6,53 @@ const S = {};
 
 // 1rem = 16px
 S.Background = styled.div`
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     ${flexCenterColumn}
-    background-color: ${theme.PALETTE.background.yellow};
+    flex: 1;
     position: relative;
 `;
 
+S.YellowBackground = styled.div`
+    width: 100%;
+    height: 52%;
+    background-color: ${theme.PALETTE.background.yellow};
+`;
+
+S.WhiteBackground = styled.div`
+    width: 100%;
+    height: 48%;
+    background-color: ${theme.PALETTE.background.white};
+`;
+
+S.Wrapper = styled.div`
+    width: 100%;
+    ${flexCenterColumn}
+    position: absolute;
+`;
+
 S.SignUpLogoWrapper = styled.div`
-    margin-top: 4rem;
+    margin-top: 2rem;
+    height: 8rem;
+    & img {
+        height: 100%;
+    }
+    margin-left: 4.5rem;
+`;
+
+S.CatchphraseWrapper = styled.div`
     height: 10rem;
     & img {
         height: 100%;
     }
-    margin-left: 6rem;
-`;
-
-S.CatchphraseWrapper = styled.div`
-    height: 12rem;
-    & img {
-        height: 100%;
-    }
-    margin-bottom: 4rem;
-`;
-
-S.BackgroundWhite = styled.div`
-    width: 100%;
-    background-color: ${theme.PALETTE.background.white};
-    ${flexCenterColumn}
 `;
 
 S.SignUpFormContainer = styled.div`
     width: 28rem;
-    position: absolute;
-    top: 25rem;
+    position: relative;
     background-color: transparent;
     ${flexCenterColumn}
+    margin-bottom: 4.5rem;
 `;
 
 S.SignUpForm = styled.form`
