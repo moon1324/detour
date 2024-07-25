@@ -12,3 +12,9 @@ export const flexCenterColumn = css`
     justify-content: center;
     align-items: center;
 `;
+
+export const flexColumn = css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;

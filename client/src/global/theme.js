@@ -18,10 +18,13 @@ theme.PALETTE = {
     error: "#EB6144",
     background: {
         white: "#FFFFFF",
+        main: "#FFE8A3",
         yellow: "#FFFAEA",
+        kakao: "#F9E000",
         gray: "#D9D9D9",
         black: "#1E1E1E",
     },
+    black: "#332E21",
 };
 
 theme.FONT_SIZE = {
