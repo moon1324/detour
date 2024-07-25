@@ -6,21 +6,53 @@ const S = {};
 
 // 1rem = 16px
 S.Background = styled.div`
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     ${flexCenterColumn}
+    flex: 1;
+    position: relative;
+`;
+
+S.YellowBackground = styled.div`
+    width: 100%;
+    height: 55%;
     background-color: ${theme.PALETTE.background.yellow};
+`;
+
+S.WhiteBackground = styled.div`
+    width: 100%;
+    height: 45%;
+    background-color: ${theme.PALETTE.background.white};
+`;
+
+S.Wrapper = styled.div`
+    width: 100%;
+    ${flexCenterColumn}
+    position: absolute;
+    /* position: relative */
 `;
 
 S.CharacterWrapper = styled.div`
     /* margin-top: 100px; */
-    margin-top: 4rem;
+    margin-top: 2rem;
     /* height: 400px; */
-    height: 20rem;
+    height: 16rem;
     & img {
         height: 100%;
     }
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
+`;
+
+S.LogoWrapper = styled.div`
+    /* height: 200px; */
+    height: 8rem;
+    & img {
+        height: 100%;
+    }
+    position: absolute;
+    /* top: 500px; */
+    top: 18rem;
+    margin-left: 4.5rem;
 `;
 
 S.LoginFormWrapper = styled.div`
@@ -28,21 +60,9 @@ S.LoginFormWrapper = styled.div`
     background-color: ${theme.PALETTE.background.white};
 `;
 
-S.LogoWrapper = styled.div`
-    /* height: 200px; */
-    height: 10rem;
-    & img {
-        height: 100%;
-    }
-    position: absolute;
-    /* top: 500px; */
-    top: 25rem;
-    margin-left: 6rem;
-`;
-
 S.LoginForm = styled.form`
     /* margin-top: 160px; */
-    margin-top: 6rem;
+    margin-top: 5rem;
     ${flexCenterColumn}
 `;
 
