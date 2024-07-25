@@ -32,7 +32,6 @@ S.Wrapper = styled.div`
 `;
 
 S.SignUpLogoWrapper = styled.div`
-    margin-top: 2rem;
     height: 8rem;
     & img {
         height: 100%;
@@ -45,6 +44,7 @@ S.CatchphraseWrapper = styled.div`
     & img {
         height: 100%;
     }
+    margin-top: -2rem;
 `;
 
 S.SignUpFormContainer = styled.div`
@@ -52,7 +52,7 @@ S.SignUpFormContainer = styled.div`
     position: relative;
     background-color: transparent;
     ${flexCenterColumn}
-    margin-bottom: 4.5rem;
+    margin-top: -2rem;
 `;
 
 S.SignUpForm = styled.form`
@@ -92,7 +92,6 @@ S.ForAdminLabel = styled.label`
     }
     & span {
         font-size: 12px;
-        margin-bottom: 1px;
     }
 `;
 
