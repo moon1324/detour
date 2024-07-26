@@ -2,8 +2,18 @@ import React from "react";
 import S from "./style";
 import DetourButton from "../../components/button/DetourButton";
 import Input from "../../components/input/style";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { isSubmitting, isSubmitted, errors },
+    } = useForm({ mode: "onChange" });
+
+    const idRegex = /^[a-z0-9]{4,10}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,15}$/;
+
     return (
         <S.Background>
             <S.YellowBackground />
