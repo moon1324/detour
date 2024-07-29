@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import S from "./style";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,7 +27,8 @@ const Login = () => {
         register,
         handleSubmit,
         formState: { isSubmitting, isSubmitted, errors },
-    } = useForm({ mode: "onChange" });
+        setError,
+    } = useForm({ mode: "onSubmit" });
 
     // id 정규식
     const idRegex = /^[a-z0-9]{4,10}$/;
@@ -82,12 +83,12 @@ const Login = () => {
     };
 
     // 회원가입으로 이동
-    onClickSignUp = () => {
+    const onClickSignUp = () => {
         navigate("/signUp");
     };
 
     // 카카오 로그인
-    onClickKakaoSignUp = () => {};
+    const onClickKakaoSignUp = () => {};
 
     return (
         <S.Background>
