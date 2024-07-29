@@ -26,6 +26,15 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         min-height: 100vh;
     }
+
+    input:focus {
+        outline: none;
+        
+    }
+
+    input:focus::placeholder {
+        color: transparent
+    }
 `;
 
 export default GlobalStyle;

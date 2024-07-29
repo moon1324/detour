@@ -21,7 +21,7 @@ const shapeCSS = {
         border-radius: 4px;
     `,
     extraLarge: css`
-        border-radius: 16px;
+        border-radius: 1.2rem;
     `,
 };
 
@@ -31,8 +31,8 @@ const sizeCSS = {
         height: 2rem;
     `,
     extraLarge: css`
-        width: 50rem;
-        height: 4rem;
+        width: 24rem;
+        height: 2.4rem;
     `,
 };
 
