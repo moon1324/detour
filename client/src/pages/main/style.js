@@ -4,4 +4,38 @@ import { flexCenter, flexCenterColumn } from "../../global/common";
 
 const S = {};
 
+S.Main = styled.div`
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 40px;
+`;
+
+S.SearchSection = styled.section`
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 40px;
+
+    & h2 {
+        font-size: 1.5em;
+        margin: 0 0 20px 0;
+    }
+`;
+
+S.SearchBar = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+`;
+
+S.TripSection = styled.section`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3개의 열을 균등하게 배치 */
+    gap: 30px; /* 카드 사이의 간격 */
+    justify-content: center; /* 중앙 정렬 */
+    padding: 20px;
+`;
+
 export default S;

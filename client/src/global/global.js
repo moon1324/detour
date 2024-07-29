@@ -20,6 +20,12 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         color: #1E1E1E;
     }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
 `;
 
 export default GlobalStyle;
