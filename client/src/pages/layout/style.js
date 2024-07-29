@@ -7,14 +7,16 @@ const S = {};
 S.Background = styled.div`
     width: 100vw;
     height: 100vh;
-    ${flexCenterColumn}
+    display: flex;
+    flex-direction: column;
     flex: 1;
     position: relative;
 `;
 
 S.Wrapper = styled.div`
     width: 100%;
-    ${flexCenterColumn}
+    display: flex;
+    flex-direction: column;
     position: absolute;
     /* position: relative */
 `;
@@ -29,7 +31,9 @@ S.Header = styled.header`
 `;
 
 S.HeaderContainer = styled.div`
-    ${flexCenter}
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     justify-content: space-between;
 `;
@@ -45,7 +49,8 @@ S.MainLogo = styled.div`
 `;
 
 S.UserContainer = styled.div`
-    ${flexCenter}
+    display: flex;
+    align-items: center;
     & a {
         margin-left: 40px;
         text-decoration: none;
@@ -82,11 +87,7 @@ S.Navbar = styled.nav`
     }
 `;
 
-S.Main = styled.main`
-    ${flexCenterColumn}
-    flex: 1;
-    padding: 20px;
-`;
+S.Main = styled.main``;
 
 S.Footer = styled.footer`
     background-color: #f0f0f0;
