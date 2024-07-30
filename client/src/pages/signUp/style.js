@@ -44,15 +44,14 @@ S.CatchphraseWrapper = styled.div`
     & img {
         height: 100%;
     }
-    margin-top: -2rem;
+    /* margin-top: -2rem; */
 `;
 
 S.SignUpFormContainer = styled.div`
     width: 28rem;
     position: relative;
     background-color: transparent;
-    ${flexCenterColumn}
-    margin-top: -2rem;
+    ${flexCenterColumn}/* margin-top: -2rem; */
 `;
 
 S.SignUpForm = styled.form`
@@ -63,15 +62,11 @@ S.SignUpForm = styled.form`
 
 S.SignUpLabel = styled.label``;
 
-S.AdminInputDiv = styled.div`
-    width: 20rem;
-    height: 4rem;
-`;
-
 S.ErrorMessageWrapper = styled.div`
     width: 20rem;
-    height: 1.5rem;
+    height: 2rem;
     margin-bottom: 0.25rem;
+    padding: 0 1rem;
 `;
 
 S.ErrorMessage = styled.span`
@@ -92,7 +87,7 @@ S.ForAdminLabel = styled.label`
     position: absolute;
     ${flexCenter}
     left: 0rem;
-    bottom: 5.5rem;
+    bottom: 6rem;
     & input {
         margin: 0;
         margin-right: 4px;
@@ -102,7 +97,14 @@ S.ForAdminLabel = styled.label`
     }
 `;
 
+S.AdminInputDiv = styled.div`
+    width: 20rem;
+    height: 4.5rem;
+`;
+
 S.SignUpButtonWrapper = styled.div`
+    display: flex;
+    justify-content: center;
     & button {
         margin: 0.5rem 1.5rem;
     }

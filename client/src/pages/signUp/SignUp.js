@@ -52,7 +52,7 @@ const SignUp = () => {
     };
 
     const onSubmit = async (data) => {
-        console.log("submit 실행");
+        console.log("Form data:", data);
         try {
             await signUpUser(data);
             navigate("/login");
@@ -101,10 +101,10 @@ const SignUp = () => {
                                     <S.ErrorMessage>아이디는 영어 소문자와 숫자만, 최소 4자에서 최대 10자 사이여야 합니다</S.ErrorMessage>
                                 )}
                                 {errors?.loginId?.type === "required" && <S.ErrorMessage>아이디를 입력해주세요</S.ErrorMessage>}
-                                {errors?.loginId?.type === "duplicate" && <S.ErrorMessage>중복된 아이디 입니다</S.ErrorMessage>}
+                                {/* {errors?.loginId?.type === "duplicate" && <S.ErrorMessage>중복된 아이디 입니다</S.ErrorMessage>} */}
                             </S.ErrorMessageWrapper>
                         </S.SignUpLabel>
-                        <S.SignUpLabel>
+                        <S.SignUpLabel htmlFor="password">
                             <Input
                                 {...register("password", {
                                     required: true,
@@ -112,6 +112,7 @@ const SignUp = () => {
                                         value: passwordRegex,
                                     },
                                 })}
+                                type="password"
                                 variant={"white"}
                                 shape={"large"}
                                 size={"large"}
@@ -128,7 +129,7 @@ const SignUp = () => {
                                 {errors?.password?.type === "required" && <S.ErrorMessage>비밀번호를 입력해주세요</S.ErrorMessage>}
                             </S.ErrorMessageWrapper>
                         </S.SignUpLabel>
-                        <S.SignUpLabel>
+                        <S.SignUpLabel htmlFor="email">
                             <Input
                                 {...register("email", {
                                     required: true,
@@ -146,10 +147,10 @@ const SignUp = () => {
                             <S.ErrorMessageWrapper>
                                 {errors?.email?.type === "pattern" && <S.ErrorMessage>이메일 양식에 맞게 입력해주세요</S.ErrorMessage>}
                                 {errors?.email?.type === "required" && <S.ErrorMessage>이메일을 입력해주세요</S.ErrorMessage>}
-                                {errors?.email?.type === "duplicate" && <S.ErrorMessage>중복된 이메일 입니다</S.ErrorMessage>}
+                                {/* {errors?.email?.type === "duplicate" && <S.ErrorMessage>중복된 이메일 입니다</S.ErrorMessage>} */}
                             </S.ErrorMessageWrapper>
                         </S.SignUpLabel>
-                        <S.SignUpLabel>
+                        <S.SignUpLabel htmlFor="nickname">
                             <Input
                                 {...register("nickname", { required: true })}
                                 variant={"white"}
@@ -160,7 +161,8 @@ const SignUp = () => {
                                 placeholder="닉네임을 입력하세요"
                             />
                             <S.ErrorMessageWrapper>
-                                {errors?.nickname?.type === "duplicate" && <S.ErrorMessage>중복된 닉네임 입니다</S.ErrorMessage>}
+                                {errors?.nickname?.type === "required" && <S.ErrorMessage>닉네임을 입력해주세요</S.ErrorMessage>}
+                                {/* {errors?.nickname?.type === "duplicate" && <S.ErrorMessage>중복된 닉네임 입니다</S.ErrorMessage>} */}
                             </S.ErrorMessageWrapper>
                         </S.SignUpLabel>
                         {/* <S.SignUpLabel></S.SignUpLabel> */}
@@ -169,7 +171,7 @@ const SignUp = () => {
                             <span>관리자</span>
                         </S.ForAdminLabel>
                         {isAdminChecked ? (
-                            <S.SignUpLabel>
+                            <S.SignUpLabel htmlFor="adminToken">
                                 <Input
                                     {...register("adminToken", { required: isAdminChecked })}
                                     variant={"white"}
@@ -186,12 +188,12 @@ const SignUp = () => {
                         ) : (
                             <S.AdminInputDiv />
                         )}
+                        <S.SignUpButtonWrapper>
+                            <DetourButton variant={"gray"} shape={"small"} size={"small"} color={"black"} border={"gray"} disabled={isSubmitting}>
+                                회원가입
+                            </DetourButton>
+                        </S.SignUpButtonWrapper>
                     </S.SignUpForm>
-                    <S.SignUpButtonWrapper>
-                        <DetourButton type="submit" variant={"gray"} shape={"small"} size={"small"} color={"black"} border={"gray"}>
-                            회원가입
-                        </DetourButton>
-                    </S.SignUpButtonWrapper>
                 </S.SignUpFormContainer>
             </S.Wrapper>
         </S.Background>
