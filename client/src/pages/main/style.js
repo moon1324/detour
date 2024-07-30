@@ -13,6 +13,45 @@ S.Main = styled.div`
     margin-top: 40px;
 `;
 
+S.PopularSection = styled.section`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`;
+
+S.ArticleContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+S.PopularArticle = styled.article`
+    position: relative;
+    width: 20rem;
+    height: 12rem;
+    margin: 2rem;
+    & img {
+        width: 100%;
+        height: 100%;
+    }
+`;
+
+S.PopularArticleH4 = styled.h4`
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: ${theme.FONT_SIZE.h4};
+    color: ${theme.PALETTE.white};
+`;
+
+S.PopularArticleButtonWrapper = styled.div`
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1rem;
+`;
+
 S.SearchSection = styled.section`
     width: 100%;
     max-width: 800px;
