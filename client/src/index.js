@@ -3,8 +3,18 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { combineReducers, legacy_createStore as createStore } from "redux";
+import { devToolsEnhancer } from "redux-devtools-extension";
+import { Provider } from "react-redux";
+import loginReducer from "./modules/login";
+
+const rootReducer = combineReducers({
+    login: loginReducer,
+});
+const store = createStore(rootReducer, devToolsEnhancer());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
     <>
         <Provider store={store}>
