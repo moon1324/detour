@@ -61,6 +61,13 @@ S.SignUpForm = styled.form`
     }
 `;
 
+S.SignUpLabel = styled.label``;
+
+S.AdminInputDiv = styled.div`
+    width: 20rem;
+    height: 4rem;
+`;
+
 S.ErrorMessageWrapper = styled.div`
     width: 20rem;
     height: 1.5rem;
