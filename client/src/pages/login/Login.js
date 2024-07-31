@@ -38,7 +38,7 @@ const Login = () => {
     const onSubmit = async (data) => {
         try {
             // fetch 날리는 주소 체크후 수정해야함
-            const response = await fetch("http://localhost:8000/user/login", {
+            const response = await fetch("http://localhost:8081/api/users/login", {
                 // const response = await fetch("http://localhost:8000/user/passportLogin", {
                 method: "POST",
                 headers: {
