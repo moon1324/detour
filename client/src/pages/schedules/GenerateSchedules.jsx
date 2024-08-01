@@ -54,39 +54,8 @@ const GenerateSchedules = () => {
             alert("여행 기간을 선택해 주세요.");
             return;
         }
-
-        // try {
-        //     const response = await fetch("http://localhost:8081/api/schedules", {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify({
-        //             title: title,
-        //             departualDate: startDate ? startDate.toISOString() : null,
-        //             arrivalDate: endDate ? endDate.toISOString() : null,
-        //         }),
-        //     });
-
-        //     console.log(response, "response data");
-        //     console.log(response.ok);
-
-        //     if (!response.ok) {
-        //         const result = await response.json();
-        //         throw new Error(result.message || "Request failed");
-        //     }
-        //     const result = response.json();
-        //     setScheduleId(result.data.scheduleId);
-
-        //     return result;
-        // } catch (error) {
-        //     console.error("Error:", error);
-        // }
-
         setAddSchedulesVisible(true);
     };
-
-    const onClickGenerateSchedules = () => {};
 
     const handleSelectDates = (start, end) => {
         const startDate = new Date(start);
@@ -115,13 +84,12 @@ const GenerateSchedules = () => {
                 ) : (
                     <S.GenerateSchedulesInput value={title} onChange={onChangeSetTitle} onKeyDown={onKeyDownSetDiv} onBlur={onBlurSetDiv} />
                 )}
-
                 <S.SelectPeriodContainer>
                     <span>{period}</span>
                     <S.CalendarButton onClick={onClickSetCalendar}>🗓️</S.CalendarButton>
                 </S.SelectPeriodContainer>
                 {addSchedulesVisible ? (
-                    <AddSchedules startDate={startDate} endDate={endDate} />
+                    <AddSchedules title={title} startDate={startDate} endDate={endDate} />
                 ) : (
                     <S.GenerateSchedulesButtonWrapper>
                         <DetourButton variant={"main"} shape={"small"} size={"medium"} color={"black"} border={"default"} onClick={onClickShowAddSchedules}>
@@ -129,12 +97,6 @@ const GenerateSchedules = () => {
                         </DetourButton>
                     </S.GenerateSchedulesButtonWrapper>
                 )}
-                <S.GenerateSchedulesCompleteButtonWrapper>
-                    <DetourButton variant={"main"} shape={"small"} size={"medium"} color={"black"} border={"default"} onClick={onClickGenerateSchedules}>
-                        완료
-                    </DetourButton>
-                </S.GenerateSchedulesCompleteButtonWrapper>
-
                 {calendarVisible && <Calendar onClose={() => closeCalendar()} onSelectDates={handleSelectDates} />}
             </S.GenerateSchedulesContainer>
         </S.GenerateSchedulesWrapper>

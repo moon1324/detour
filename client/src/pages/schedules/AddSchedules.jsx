@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import S from "./style";
 import SearchLocation from "./SearchLocation";
+import DetourButton from "../../components/button/DetourButton";
 
 // kakao maps api를 심어서 가져오면 window 전역객체에 들어간다
 // 함수형 컴포넌트에서는 이걸 바로 인식하지 못하는경우가 있어서
 // const {kakao} = window로 인지시키고 kakao객체를 뽑아쓴다
 const { kakao } = window;
 
-const AddSchedules = ({ startDate, endDate }) => {
+const AddSchedules = ({ title, startDate, endDate }) => {
     // 각 카드의 위치 배열을 저장하기 위한 상태
     const [cardLocations, setCardLocations] = useState({});
     const [searchVisible, setSearchVisible] = useState(false);
@@ -103,6 +104,41 @@ const AddSchedules = ({ startDate, endDate }) => {
         });
     };
 
+    // AddSchedules가 들고있는 모든 cardLocations객체를 fetch로 넘긴다
+    const onClickGenerateSchedules = async () => {
+        const scheduleData = {
+            title: `${title}`,
+            startDate: startDate.toISOString(),
+            endDate: endDate.toISOString(),
+            itinerary: Object.keys(cardLocations).map((key) => ({
+                day: parseInt(key) + 1, // 1일부터 시작
+                locations: cardLocations[key],
+            })),
+        };
+
+        console.log(scheduleData);
+
+        // try {
+        //     const response = await fetch("https://localhost:8081/api/schedules", {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json",
+        //         },
+        //         body: JSON.stringify(scheduleData),
+        //     });
+
+        //     if (!response.ok) {
+        //         throw new Error("Network response was not ok");
+        //     }
+
+        //     const result = await response.json();
+        //     console.log("Schedule saved successfully:", result);
+        //     // navigate 일정 상세 페이지
+        // } catch (error) {
+        //     console.error("Error saving schedule:", error);
+        // }
+    };
+
     return (
         <S.AddSchedulesWrapper>
             <S.MapWrapper>
@@ -137,6 +173,11 @@ const AddSchedules = ({ startDate, endDate }) => {
                     ))}
                 </S.AddScheduleCardsContainer>
             </S.AddScheduleCardsWrapper>
+            <S.GenerateSchedulesCompleteButtonWrapper>
+                <DetourButton variant={"main"} shape={"small"} size={"medium"} color={"black"} border={"default"} onClick={onClickGenerateSchedules}>
+                    완료
+                </DetourButton>
+            </S.GenerateSchedulesCompleteButtonWrapper>
             {searchVisible && (
                 <SearchLocation onClose={closeSearch} searchValue={searchValue} setSearchValue={setSearchValue} onSelectLocation={handleLocationSelect} />
             )}
