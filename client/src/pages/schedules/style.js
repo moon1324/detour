@@ -9,6 +9,7 @@ S.GenerateSchedulesWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 40rem;
     padding: 20px;
     margin-top: 40px;
 `;
@@ -41,6 +42,7 @@ S.SelectPeriodContainer = styled.div`
     display: flex;
     font-size: 1.5rem;
     font-weight: 500;
+    margin-bottom: 2rem;
 `;
 
 S.CalendarButton = styled.div`

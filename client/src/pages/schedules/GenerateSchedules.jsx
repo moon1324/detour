@@ -11,8 +11,9 @@ const GenerateSchedules = () => {
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
     const [calendarVisible, setCalendarVisible] = useState(false);
+    const [addSchedulesVisible, setAddSchedulesVisible] = useState(false);
 
-    const [scheduleId, setScheduleId] = useState(null);
+    // const [scheduleId, setScheduleId] = useState(null);
 
     const onClickChangeAsInput = () => {
         setIsInput(true);
@@ -43,7 +44,8 @@ const GenerateSchedules = () => {
 
     // 여행일정 만들기 버튼 눌렀을 때, 저장된 title, startDate, endDate를 title, departualDate, arrivalDate로 fetch요청
 
-    const onClickGenerateSchedules = async () => {
+    const onClickGenerateSchedules = () => {
+        // const onClickGenerateSchedules = async () => {
         console.log(title);
         console.log(startDate);
         console.log(endDate);
@@ -53,33 +55,35 @@ const GenerateSchedules = () => {
             return;
         }
 
-        try {
-            const response = await fetch("http://localhost:8081/api/schedules", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    title: title,
-                    departualDate: startDate ? startDate.toISOString() : null,
-                    arrivalDate: endDate ? endDate.toISOString() : null,
-                }),
-            });
+        // try {
+        //     const response = await fetch("http://localhost:8081/api/schedules", {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json",
+        //         },
+        //         body: JSON.stringify({
+        //             title: title,
+        //             departualDate: startDate ? startDate.toISOString() : null,
+        //             arrivalDate: endDate ? endDate.toISOString() : null,
+        //         }),
+        //     });
 
-            console.log(response, "response data");
-            console.log(response.ok);
+        //     console.log(response, "response data");
+        //     console.log(response.ok);
 
-            if (!response.ok) {
-                const result = await response.json();
-                throw new Error(result.message || "Request failed");
-            }
-            const result = response.json();
-            setScheduleId(result.data.scheduleId);
+        //     if (!response.ok) {
+        //         const result = await response.json();
+        //         throw new Error(result.message || "Request failed");
+        //     }
+        //     const result = response.json();
+        //     setScheduleId(result.data.scheduleId);
 
-            return result;
-        } catch (error) {
-            console.error("Error:", error);
-        }
+        //     return result;
+        // } catch (error) {
+        //     console.error("Error:", error);
+        // }
+
+        setAddSchedulesVisible(true);
     };
 
     const handleSelectDates = (start, end) => {
@@ -114,18 +118,15 @@ const GenerateSchedules = () => {
                     <span>{period}</span>
                     <S.CalendarButton onClick={onClickSetCalendar}>🗓️</S.CalendarButton>
                 </S.SelectPeriodContainer>
-                {scheduleId === null ? (
+                {addSchedulesVisible ? (
+                    <AddSchedules startDate={startDate} endDate={endDate} />
+                ) : (
                     <S.GenerateSchedulesButtonWrapper>
-                        {/* 여행일정 만들기 클릭시 fetch요청 */}
                         <DetourButton variant={"main"} shape={"small"} size={"medium"} color={"black"} border={"default"} onClick={onClickGenerateSchedules}>
                             여행 일정 만들기
                         </DetourButton>
                     </S.GenerateSchedulesButtonWrapper>
-                ) : (
-                    // <AddSchedules />
-                    <></>
                 )}
-                <AddSchedules startDate={startDate} endDate={endDate} />
                 {calendarVisible && <Calendar onClose={() => closeCalendar()} onSelectDates={handleSelectDates} />}
             </S.GenerateSchedulesContainer>
         </S.GenerateSchedulesWrapper>
