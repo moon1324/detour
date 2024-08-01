@@ -44,7 +44,7 @@ const GenerateSchedules = () => {
 
     // 여행일정 만들기 버튼 눌렀을 때, 저장된 title, startDate, endDate를 title, departualDate, arrivalDate로 fetch요청
 
-    const onClickGenerateSchedules = () => {
+    const onClickShowAddSchedules = () => {
         // const onClickGenerateSchedules = async () => {
         console.log(title);
         console.log(startDate);
@@ -86,6 +86,8 @@ const GenerateSchedules = () => {
         setAddSchedulesVisible(true);
     };
 
+    const onClickGenerateSchedules = () => {};
+
     const handleSelectDates = (start, end) => {
         const startDate = new Date(start);
         const endDate = end ? new Date(end) : null;
@@ -122,11 +124,17 @@ const GenerateSchedules = () => {
                     <AddSchedules startDate={startDate} endDate={endDate} />
                 ) : (
                     <S.GenerateSchedulesButtonWrapper>
-                        <DetourButton variant={"main"} shape={"small"} size={"medium"} color={"black"} border={"default"} onClick={onClickGenerateSchedules}>
+                        <DetourButton variant={"main"} shape={"small"} size={"medium"} color={"black"} border={"default"} onClick={onClickShowAddSchedules}>
                             여행 일정 만들기
                         </DetourButton>
                     </S.GenerateSchedulesButtonWrapper>
                 )}
+                <S.GenerateSchedulesCompleteButtonWrapper>
+                    <DetourButton variant={"main"} shape={"small"} size={"medium"} color={"black"} border={"default"} onClick={onClickGenerateSchedules}>
+                        완료
+                    </DetourButton>
+                </S.GenerateSchedulesCompleteButtonWrapper>
+
                 {calendarVisible && <Calendar onClose={() => closeCalendar()} onSelectDates={handleSelectDates} />}
             </S.GenerateSchedulesContainer>
         </S.GenerateSchedulesWrapper>

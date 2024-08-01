@@ -62,6 +62,17 @@ S.GenerateSchedulesButtonWrapper = styled.div`
         font-size: 1rem;
     }
 `;
+
+S.GenerateSchedulesCompleteButtonWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    & button {
+        margin-top: 2rem;
+        font-size: 1rem;
+    }
+`;
+
 // Calendar
 
 S.CalendarModal = styled.div`
