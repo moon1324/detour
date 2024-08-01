@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import S from "./style";
 import DetourButton from "../../components/button/DetourButton";
 import Calendar from "./Calendar";
+import AddSchedules from "./AddSchedules";
 
 const GenerateSchedules = () => {
     const [isInput, setIsInput] = useState(false);
@@ -10,6 +11,8 @@ const GenerateSchedules = () => {
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
     const [calendarVisible, setCalendarVisible] = useState(false);
+
+    const [scheduleId, setScheduleId] = useState(null);
 
     const onClickChangeAsInput = () => {
         setIsInput(true);
@@ -70,8 +73,10 @@ const GenerateSchedules = () => {
                 const result = await response.json();
                 throw new Error(result.message || "Request failed");
             }
+            const result = response.json();
+            setScheduleId(result.data.scheduleId);
 
-            return response.json();
+            return result;
         } catch (error) {
             console.error("Error:", error);
         }
@@ -109,12 +114,18 @@ const GenerateSchedules = () => {
                     <span>{period}</span>
                     <S.CalendarButton onClick={onClickSetCalendar}>🗓️</S.CalendarButton>
                 </S.SelectPeriodContainer>
-                <S.GenerateSchedulesButtonWrapper>
-                    {/* 여행일정 만들기 클릭시 fetch요청 */}
-                    <DetourButton variant={"main"} shape={"small"} size={"medium"} color={"black"} border={"default"} onClick={onClickGenerateSchedules}>
-                        여행일정 만들기
-                    </DetourButton>
-                </S.GenerateSchedulesButtonWrapper>
+                {scheduleId === null ? (
+                    <S.GenerateSchedulesButtonWrapper>
+                        {/* 여행일정 만들기 클릭시 fetch요청 */}
+                        <DetourButton variant={"main"} shape={"small"} size={"medium"} color={"black"} border={"default"} onClick={onClickGenerateSchedules}>
+                            여행 일정 만들기
+                        </DetourButton>
+                    </S.GenerateSchedulesButtonWrapper>
+                ) : (
+                    // <AddSchedules />
+                    <></>
+                )}
+                <AddSchedules startDate={startDate} endDate={endDate} />
                 {calendarVisible && <Calendar onClose={() => closeCalendar()} onSelectDates={handleSelectDates} />}
             </S.GenerateSchedulesContainer>
         </S.GenerateSchedulesWrapper>
