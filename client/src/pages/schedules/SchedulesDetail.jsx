@@ -17,7 +17,7 @@ const SchedulesDetail = () => {
             console.log("fetchScheduleDetail start");
             console.log(scheduleId);
             console.log(`http://52.78.2.148/api/schedules/${scheduleId}`);
-            const response = await fetch(`http://52.78.2.148/api/schedules/${scheduleId}`, {
+            const response = await fetch(`http://localhost:8081/api/schedules/${scheduleId}`, {
                 method: "GET",
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
@@ -31,6 +31,7 @@ const SchedulesDetail = () => {
             const result = await response.json();
             console.log(result);
             setSchedule(result.data);
+            console.log(schedule);
         } catch (error) {
             console.error("Failed to fetch schedule detail:", error);
         }
@@ -108,7 +109,6 @@ const SchedulesDetail = () => {
                                                         <S.Location>
                                                             <S.LocationIndex>{locIndex + 1}</S.LocationIndex>
                                                             <S.LocationName>{location.name}</S.LocationName>
-                                                            <S.LocationAddress>{location.address}</S.LocationAddress>
                                                         </S.Location>
                                                     </S.LocationWrapper>
                                                 ))}
