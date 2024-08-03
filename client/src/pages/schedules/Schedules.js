@@ -1,10 +1,10 @@
 import React from "react";
-import GenerateSchedules from "./GenerateSchedules";
+import { Outlet } from "react-router-dom";
 
 const Schedules = () => {
     return (
         <>
-            <GenerateSchedules />
+            <Outlet />
         </>
     );
 };

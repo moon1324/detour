@@ -77,17 +77,17 @@ const GenerateSchedules = () => {
     };
 
     return (
-        <S.GenerateSchedulesWrapper>
-            <S.GenerateSchedulesContainer>
+        <S.SchedulesWrapper>
+            <S.SchedulesContainer>
                 {!isInput ? (
-                    <S.GenerateSchedulesTitle onClick={onClickChangeAsInput}>{title}</S.GenerateSchedulesTitle>
+                    <S.SchedulesTitle onClick={onClickChangeAsInput}>{title}</S.SchedulesTitle>
                 ) : (
-                    <S.GenerateSchedulesInput value={title} onChange={onChangeSetTitle} onKeyDown={onKeyDownSetDiv} onBlur={onBlurSetDiv} />
+                    <S.SchedulesInput value={title} onChange={onChangeSetTitle} onKeyDown={onKeyDownSetDiv} onBlur={onBlurSetDiv} />
                 )}
-                <S.SelectPeriodContainer>
+                <S.SchedulesPeriodContainer>
                     <span>{period}</span>
                     <S.CalendarButton onClick={onClickSetCalendar}>🗓️</S.CalendarButton>
-                </S.SelectPeriodContainer>
+                </S.SchedulesPeriodContainer>
                 {addSchedulesVisible ? (
                     <AddSchedules title={title} startDate={startDate} endDate={endDate} />
                 ) : (
@@ -98,8 +98,8 @@ const GenerateSchedules = () => {
                     </S.GenerateSchedulesButtonWrapper>
                 )}
                 {calendarVisible && <Calendar onClose={() => closeCalendar()} onSelectDates={handleSelectDates} />}
-            </S.GenerateSchedulesContainer>
-        </S.GenerateSchedulesWrapper>
+            </S.SchedulesContainer>
+        </S.SchedulesWrapper>
     );
 };
 

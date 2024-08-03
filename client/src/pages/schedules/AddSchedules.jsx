@@ -145,10 +145,10 @@ const AddSchedules = ({ title, startDate, endDate }) => {
                 <div id="map"></div>
             </S.MapWrapper>
             <S.DividerLine />
-            <S.AddScheduleCardsWrapper>
-                <S.AddScheduleCardsContainer>
+            <S.CardsWrapper>
+                <S.CardsContainer>
                     {dateRange.map((date, index) => (
-                        <S.AddScheduleCards key={index}>
+                        <S.Cards key={index}>
                             <S.CardTitleContainer>
                                 <S.CardTitle>DAY {index + 1}</S.CardTitle>
                                 <S.CardDate>{date.toLocaleDateString()}</S.CardDate>
@@ -169,10 +169,10 @@ const AddSchedules = ({ title, startDate, endDate }) => {
                                     </S.PlusButtonWrapper>
                                 </S.LocationContainer>
                             </S.LocationContainerWrapper>
-                        </S.AddScheduleCards>
+                        </S.Cards>
                     ))}
-                </S.AddScheduleCardsContainer>
-            </S.AddScheduleCardsWrapper>
+                </S.CardsContainer>
+            </S.CardsWrapper>
             <S.GenerateSchedulesCompleteButtonWrapper>
                 <DetourButton variant={"main"} shape={"small"} size={"medium"} color={"black"} border={"default"} onClick={onClickGenerateSchedules}>
                     완료

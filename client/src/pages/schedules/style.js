@@ -4,7 +4,9 @@ import { flexCenter, flexCenterColumn } from "../../global/common";
 
 const S = {};
 
-S.GenerateSchedulesWrapper = styled.div`
+// GenerateSchedules
+// SchedulesDetail
+S.SchedulesWrapper = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -14,18 +16,18 @@ S.GenerateSchedulesWrapper = styled.div`
     margin-top: 40px;
 `;
 
-S.GenerateSchedulesContainer = styled.div`
+S.SchedulesContainer = styled.div`
     width: 80%;
 `;
 
-S.GenerateSchedulesTitle = styled.div`
+S.SchedulesTitle = styled.div`
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 2rem;
     cursor: pointer;
 `;
 
-S.GenerateSchedulesInput = styled.input`
+S.SchedulesInput = styled.input`
     margin: 0;
     padding: 0;
     height: 2rem;
@@ -38,7 +40,7 @@ S.GenerateSchedulesInput = styled.input`
     background-color: transparent;
 `;
 
-S.SelectPeriodContainer = styled.div`
+S.SchedulesPeriodContainer = styled.div`
     display: flex;
     font-size: 1.5rem;
     font-weight: 500;
@@ -174,6 +176,7 @@ S.SelectButton = styled.button`
 `;
 
 // AddSchedule
+// SchedulesDetail
 
 S.AddSchedulesWrapper = styled.div``;
 
@@ -194,15 +197,15 @@ S.DividerLine = styled.div`
     background-color: ${theme.PALETTE.gray[300]};
 `;
 
-S.AddScheduleCardsWrapper = styled.div`
+S.CardsWrapper = styled.div`
     overflow-x: scroll;
 `;
 
-S.AddScheduleCardsContainer = styled.div`
+S.CardsContainer = styled.div`
     display: inline-flex;
 `;
 
-S.AddScheduleCards = styled.div`
+S.Cards = styled.div`
     width: 20rem;
     height: 30rem;
     display: flex;
@@ -362,6 +365,34 @@ S.SearchLocation = styled.div`
     margin-bottom: 0.5rem;
     background-color: ${theme.PALETTE.background.yellow};
     border-radius: 4px;
+`;
+
+// SchedulesDetail
+S.PlanWrapper = styled.div``;
+
+S.SchedulesInformationContainer = styled.div`
+    display: flex;
+`;
+
+S.SchedulesTitlePeriodContainer = styled.div`
+    width: 65%;
+`;
+S.SchedulesLikesTravelersContainer = styled.div`
+    width: 35%;
+`;
+
+S.SchedulesLike = styled.div`
+    display: flex;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 1rem;
+`;
+
+S.SchedulesTravlers = styled.div`
+    display: flex;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 2rem;
 `;
 
 export default S;
