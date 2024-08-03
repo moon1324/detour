@@ -11,9 +11,18 @@ const SchedulesDetail = () => {
     const [markers, setMarkers] = useState([]);
 
     const fetchScheduleDetail = async () => {
+        const accessToken = localStorage.getItem("token").substring(7);
         console.log(scheduleId);
         try {
-            const response = await fetch(`http://52.78.2.148/api/schedules/${scheduleId}`);
+            console.log("fetchScheduleDetail start");
+            console.log(scheduleId);
+            console.log(`http://52.78.2.148/api/schedules/${scheduleId}`);
+            const response = await fetch(`http://52.78.2.148/api/schedules/${scheduleId}`, {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
             console.log(response);
             console.log(response.ok);
             if (!response.ok) {
@@ -64,7 +73,12 @@ const SchedulesDetail = () => {
 
     useEffect(() => {
         fetchScheduleDetail();
+        console.log("mount done");
     }, []);
+
+    useEffect(() => {
+        console.log(schedule);
+    }, [schedule]);
 
     return (
         <S.SchedulesWrapper>
